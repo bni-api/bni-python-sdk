@@ -183,60 +183,58 @@ class OneGatePayment():
         })
         return responseOGP(params={'res': res, 'resObj': 'getInterbankPaymentResponse'})
 
-   
-    # Requested by WDC
-    # def holdAmount(self, params={
-    #     'customerReferenceNumber',
-    #     'amount',
-    #     'accountNo',
-    #     'detail'
-    # }):
-    #     payload = {}
-    #     body = {
-    #         'clientId': generateClientId(self.client['appName']),
-    #         'customerReferenceNumber': params['customerReferenceNumber'],
-    #         'amount': params['amount'],
-    #         'accountNo': params['accountNo'],
-    #         'detail': params['detail']
-    #     }
-    #     payload = body
-    #     payload['signature'] = generateSignature(
-    #         {'body': body, 'apiSecret': self.client['apiSecret']})
-    #     res = self.httpClient.request({
-    #         'method': 'POST',
-    #         'apiKey': self.client['apiKey'],
-    #         'accessToken': self.token,
-    #         'url': f'{self.baseUrl}',
-    #         'path': '/H2H/v2/holdamount',
-    #         'data': payload
-    #     })
-    #     return responseOGP(params={'res': res, 'resObj': 'holdAmountResponse'})
+    def holdAmount(self, params={
+        'customerReferenceNumber',
+        'amount',
+        'accountNo',
+        'detail'
+    }):
+        payload = {}
+        body = {
+            'clientId': generateClientId(self.client['appName']),
+            'customerReferenceNumber': params['customerReferenceNumber'],
+            'amount': params['amount'],
+            'accountNo': params['accountNo'],
+            'detail': params['detail']
+        }
+        payload = body
+        payload['signature'] = generateSignature(
+            {'body': body, 'apiSecret': self.client['apiSecret']})
+        res = self.httpClient.request({
+            'method': 'POST',
+            'apiKey': self.client['apiKey'],
+            'accessToken': self.token,
+            'url': f'{self.baseUrl}',
+            'path': '/H2H/v2/holdamount',
+            'data': payload
+        })
+        return responseOGP(params={'res': res, 'resObj': 'holdAmountResponse'})
 
-    # def holdAmountRelease(self, params={
-    #     'customerReferenceNumber',
-    #     'amount',
-    #     'accountNo',
-    #     'bankReference',
-    #     'holdTransactionDate'
-    # }):
-    #     payload = {}
-    #     body = {
-    #         'clientId': generateClientId(self.client['appName']),
-    #         'customerReferenceNumber': params['customerReferenceNumber'],
-    #         'amount': params['amount'],
-    #         'accountNo': params['accountNo'],
-    #         'bankReference': params['bankReference'],
-    #         'holdTransactionDate': params['holdTransactionDate']
-    #     }
-    #     payload = body
-    #     payload['signature'] = generateSignature(
-    #         {'body': body, 'apiSecret': self.client['apiSecret']})
-    #     res = self.httpClient.request({
-    #         'method': 'POST',
-    #         'apiKey': self.client['apiKey'],
-    #         'accessToken': self.token,
-    #         'url': f'{self.baseUrl}',
-    #         'path': '/H2H/v2/holdamountrelease',
-    #         'data': payload
-    #     })
-    #     return responseOGP(params={'res': res, 'resObj': 'holdAmountReleaseResponse'})
+    def holdAmountRelease(self, params={
+        'customerReferenceNumber',
+        'amount',
+        'accountNo',
+        'bankReference',
+        'holdTransactionDate'
+    }):
+        payload = {}
+        body = {
+            'clientId': generateClientId(self.client['appName']),
+            'customerReferenceNumber': params['customerReferenceNumber'],
+            'amount': params['amount'],
+            'accountNo': params['accountNo'],
+            'bankReference': params['bankReference'],
+            'holdTransactionDate': params['holdTransactionDate']
+        }
+        payload = body
+        payload['signature'] = generateSignature(
+            {'body': body, 'apiSecret': self.client['apiSecret']})
+        res = self.httpClient.request({
+            'method': 'POST',
+            'apiKey': self.client['apiKey'],
+            'accessToken': self.token,
+            'url': f'{self.baseUrl}',
+            'path': '/H2H/v2/holdamountrelease',
+            'data': payload
+        })
+        return responseOGP(params={'res': res, 'resObj': 'holdAmountReleaseResponse'})

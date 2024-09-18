@@ -75,3 +75,27 @@ class HttpClient():
         payload = json.dumps(options['data'])
         response = requests.request(options['method'], url, headers=headers, data=payload, verify=self.verify)
         return response.json()
+
+    def requestV2BniDirect(self, options={'method', 'apiKey', 'accessToken', 'url', 'path', 'data', 'signature', 'timestamp', 'bniDirectKey'}):
+        url = f"{options['url']}{options['path']}"
+        payload = json.dumps(options['data'])
+        headers = {
+            'User-Agent': 'bni-python/0.1.0',
+            'x-api-key': options['apiKey'],
+            'x-signature': options['signature'],
+            'x-timestamp': options['timestamp'],
+            'Content-Type': 'application/json',
+            'bnidirect-api-key': options['bniDirectKey'],
+            'Authorization': f"Bearer {options['accessToken']}"
+        }
+        response = requests.request(
+            method=options['method'],
+            url=url,
+            headers=headers,
+            data=payload,
+            verify=self.verify  # Use with caution; ideally, set up proper SSL verification
+        )
+        
+        response.raise_for_status()  # Raise an exception for HTTP errors (4xx or 5xx)
+        
+        return response.json()  # Returns the JSON response data if the request was successful

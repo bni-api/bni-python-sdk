@@ -90,3 +90,16 @@ def responseBNIMove(params={'res'}):
         error_message = f"Error: {status_code} - {status_message}"
         raise ValueError(error_message)
     return params['res']
+
+def responseBniDirect(params={'res'}):
+    try:
+        if (params['res']['requestStatus'] != '0'):
+            code = params['res']['requestStatus']
+            errorMessage = params['res']['errorReason']
+            raise ValueError(f'\033[91m code: {code}, errorMessage: {errorMessage} \033[0m')
+        else:
+            return params['res']
+    except Exception as e:
+        code = params['res']['requestStatus']
+        message = params['res']['errorReason']
+        raise ValueError(f'\033[91m {code}:{message} \033[0m')
