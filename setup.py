@@ -17,14 +17,14 @@ test_req = pkg_req + [
 
 setup(
     name="bnipython",
-    version="0.8.8",
+    version="0.8.9",
     author="BNI API",
     author_email="",
     license='MIT',
     description="Official  BNI API SDK for Python",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/bni-api/bni-python/",
+    url="https://github.com/bni-api/bni-python-sdk/",
     packages=['bnipython','bnipython.lib','bnipython.lib.api','bnipython.lib.net','bnipython.lib.util'],
     classifiers=[
         'Programming Language :: Python',

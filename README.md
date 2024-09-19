@@ -1,7 +1,6 @@
+# BNI API SDK - Python
 
-BNI API SDK - Python
-===============
-This is the Official Python API client / library for BNI API. 
+This is the Official Python API client / library for BNI API.
 Please visit [Digital Services](https://digitalservices.bni.co.id/en/) for more information about our product and visit our documentation page at [API Documentation](https://digitalservices.bni.co.id/documentation/public/en) for more technical details.
 
 ## 1. Installation
@@ -14,7 +13,7 @@ pip install bnipython
 
 ### 1.2 Manual Installation
 
-If you are not using PyPI, you can clone or [download](https://github.com/bni-api/bnipython/archive/refs/heads/main.zip) this repository.
+If you are not using PyPI, you can clone or [download](https://github.com/bni-api/bni-python-sdk/archive/refs/heads/main.zip) this repository.
 Then import from bnipython folder. Or run Pip install from the repo folder.
 
 ```
@@ -34,9 +33,9 @@ pip install pytz
 ### 2.1 Choose an API Product
 
 We have 2 API products you can use:
+
 - [One Gate Payment](#22A-snap) - A solution for a company to integrate its application / system with banking transaction services. [documentation](https://digitalservices.bni.co.id/en/api-one-gate-payment)
 - [Snap BI](https://apidevportal.bi.go.id/snap/info) - Integrate with SNAP BI [documentation](https://apidevportal.bi.go.id/snap/api-services)
-
 
 ### 2.2 Client Initialization and Configuration
 
@@ -59,6 +58,7 @@ client = BNIClient({
 ### 2.2.A One Gate Payment
 
 Create `One Gate Payment` class object
+
 ```python
 from bnipython import BNIClient, OneGatePayment
 
@@ -76,7 +76,9 @@ ogp = OneGatePayment(client)
 ```
 
 Available methods for `One Gate Payment` class
+
 #### Get Balance
+
 ```python
 # return as Object
 res = ogp.getBalance({
@@ -85,6 +87,7 @@ res = ogp.getBalance({
 ```
 
 #### Get In House Inquiry
+
 ```python
 # return as Object
 getInHouseInquiry = ogp.getInHouseInquiry({
@@ -93,6 +96,7 @@ getInHouseInquiry = ogp.getInHouseInquiry({
 ```
 
 #### Do Payment
+
 ```python
 # return as Object
 doPayment = ogp.doPayment({
@@ -114,6 +118,7 @@ doPayment = ogp.doPayment({
 ```
 
 #### Get Payment Status
+
 ```python
 # return as Object
 getPaymentStatus = ogp.getPaymentStatus({
@@ -122,6 +127,7 @@ getPaymentStatus = ogp.getPaymentStatus({
 ```
 
 #### Get Inter Bank Inquiry
+
 ```python
 # return as Object
 getInterBankInquiry = ogp.getInterBankInquiry({
@@ -133,6 +139,7 @@ getInterBankInquiry = ogp.getInterBankInquiry({
 ```
 
 #### Get Inter Bank Payment
+
 ```python
 # return as Object
 getInterBankPayment = ogp.getInterBankPayment({
@@ -147,10 +154,10 @@ getInterBankPayment = ogp.getInterBankPayment({
 })
 ```
 
-
 ### 2.2.B Snap BI
 
 Create `Snap BI` class object
+
 ```python
 from bnipython import BNIClient, SnapBI
 
@@ -164,8 +171,8 @@ client = BNIClient({
   'appName': '{your-app-name}'
 })
 
-snap = SnapBI(client, { 
-  'privateKeyPath': '{your-rsa-private-key-path}', 
+snap = SnapBI(client, {
+  'privateKeyPath': '{your-rsa-private-key-path}',
   'channelId': '{your-channel-id}',
   'ipAddress': '{your-ip-address}', # optional
   'longitude': '{your-longitude}', # optional
@@ -174,7 +181,9 @@ snap = SnapBI(client, {
 ```
 
 Available methods for `Snap BI` class
+
 #### Balance Inquiry
+
 ```python
 # return as Object
 balanceInquiry = snap.balanceInquiry({
@@ -184,6 +193,7 @@ balanceInquiry = snap.balanceInquiry({
 ```
 
 #### Internal Account Inquiry
+
 ```python
 # return as Object
 internalAccountInquiry = snap.internalAccountInquiry({
@@ -193,6 +203,7 @@ internalAccountInquiry = snap.internalAccountInquiry({
 ```
 
 #### Transaction Status Inquiry
+
 ```python
 # return as Object
 transactionStatusInquiry = snap.transactionStatusInquiry({
@@ -213,6 +224,7 @@ transactionStatusInquiry = snap.transactionStatusInquiry({
 ```
 
 #### Transfer Intra Bank
+
 ```python
 # return as Object
 transferIntraBank = snap.transferIntraBank({
@@ -237,6 +249,7 @@ transferIntraBank = snap.transferIntraBank({
 ```
 
 #### Transfer RTGS
+
 ```python
 # return as Object
 'transferRTGS' = snap.transferRTGS({
@@ -272,6 +285,7 @@ transferIntraBank = snap.transferIntraBank({
 ```
 
 #### Transfer SKNBI
+
 ```python
 # return as Object
 transferSKNBI = snap.transferSKNBI({
@@ -307,6 +321,7 @@ transferSKNBI = snap.transferSKNBI({
 ```
 
 #### External Account Inquiry
+
 ```python
 # return as Object
 externalAccountInquiry = snap.externalAccountInquiry({
@@ -321,6 +336,7 @@ externalAccountInquiry = snap.externalAccountInquiry({
 ```
 
 #### Transfer Inter Bank
+
 ```python
 # return as Object
 transferInterBank = snap.transferInterBank({
@@ -349,7 +365,9 @@ transferInterBank = snap.transferInterBank({
 ```
 
 ### 2.2.C RDN
+
 Create `RDN` class object
+
 ```python
 from bnipython import BNIClient, RDN
 
@@ -364,13 +382,15 @@ client = BNIClient({
 })
 rekening_dana_nasabah = RDN(client)
 ```
+
 Available methods for `RDN` class
 
 #### Face Recognition
+
 ```python
 # return as Object
 faceRecognition = rekening_dana_nasabah.faceRecognition({
-  'companyId': 'SANDBOX', 
+  'companyId': 'SANDBOX',
   'parentCompanyId': 'STI_CHS', # optional
   'firstName': 'MOHAMMAD', # optional
   'middleName': 'BAQER', # optional
@@ -391,13 +411,14 @@ faceRecognition = rekening_dana_nasabah.faceRecognition({
 ```
 
 #### Register Investor
+
 ```python
 # return as Object
 registerInvestor = rekening_dana_nasabah.registerInvestor({
   'companyId': 'SANDBOX', # Registered participan id from KSEI
   'parentCompanyId': 'STI_CHS', # optional
   'uuidFaceRecog': '492F33851D634CFB', # RequestUuid successed value from Face Recognition API (KYC valid)
-  'title': '01', 
+  'title': '01',
   'firstName': 'Agus', # e.g.: "Iko"
   'middleName': '', # optional
   'lastName': 'Saputra', # e.g.: "Wirya"
@@ -409,9 +430,9 @@ registerInvestor = rekening_dana_nasabah.registerInvestor({
   'birthPlace': 'Semarang', # e.g.: "Semarang"
   'birthDate': '14081982', # e.g.: "ddMMyyyy"
   'gender': 'M', # "M" or "F"
-  'isMarried': 'S', 
+  'isMarried': 'S',
   'motherMaidenName': 'Dina Maryati', # Mother’s name, e.g.: "Dina Maryati"
-  'jobCode': '01', 
+  'jobCode': '01',
   'education': '7',
   'idType': '01', # For WNI, fill with "01" (KTP). For WNA, fill with "03" (Passport)
   'idNumber': '4147016201959998', # Identity Number (KTP for idType 01, Passport Number for idType 03)
@@ -445,6 +466,7 @@ registerInvestor = rekening_dana_nasabah.registerInvestor({
 ```
 
 #### CheckSID
+
 ```python
 # return as Object
 checkSID = rekening_dana_nasabah.checkSID({
@@ -452,13 +474,14 @@ checkSID = rekening_dana_nasabah.checkSID({
   'parentCompanyId': 'STI_CHS',
   'participantId': 'NI001', # Institution code, e.g.: "NI001"
   'sidNumber': 'IDD1206M9527805', # SID number, e.g.: "IDD12345002"
-  'accountNumberOnKsei': 'NI001CRKG00146', 
+  'accountNumberOnKsei': 'NI001CRKG00146',
   'branchCode': '0259',
   'ack': 'Y' # N = send data to KSEI & Y = check previous checkSID status
 })
 ```
 
 #### Register Investor Account
+
 ```python
 # return as Object
 registerInvestorAccount = rekening_dana_nasabah.registerInvestorAccount({
@@ -466,8 +489,8 @@ registerInvestorAccount = rekening_dana_nasabah.registerInvestorAccount({
   'parentCompanyId': 'STI_CHS', # optional
   'cifNumber': '9100749959', # CIF number
   'currency': 'IDR', # "IDR" or "USD"
-  'openAccountReason': '2', 
-  'sourceOfFund': '1', 
+  'openAccountReason': '2',
+  'sourceOfFund': '1',
   'branchId': '0259',
   'bnisId': '19050813401', # Value = requestUuid.
   'sre': 'NI001CX5U00109' # No. Sub rekening efek, e.g: “NI001CX5U00109”
@@ -475,6 +498,7 @@ registerInvestorAccount = rekening_dana_nasabah.registerInvestorAccount({
 ```
 
 #### Send Data Static
+
 ```python
 # return as Object
 sendDataStatic = rekening_dana_nasabah.sendDataStatic({
@@ -492,6 +516,7 @@ sendDataStatic = rekening_dana_nasabah.sendDataStatic({
 ```
 
 #### Inquiry Account Info
+
 ```python
 # return as Object
 inquiryAccountInfo = rekening_dana_nasabah.inquiryAccountInfo({
@@ -502,6 +527,7 @@ inquiryAccountInfo = rekening_dana_nasabah.inquiryAccountInfo({
 ```
 
 #### Inquiry Account Balance
+
 ```python
 # return as Object
 inquiryAccountBalance = rekening_dana_nasabah.inquiryAccountBalance({
@@ -512,6 +538,7 @@ inquiryAccountBalance = rekening_dana_nasabah.inquiryAccountBalance({
 ```
 
 #### Payment Using Transfer
+
 ```python
 # return as Object
 paymentUsingTransfer = rekening_dana_nasabah.paymentUsingTransfer({
@@ -526,6 +553,7 @@ paymentUsingTransfer = rekening_dana_nasabah.paymentUsingTransfer({
 ```
 
 #### Inquiry Payment Status
+
 ```python
 # return as Object
 inquiryPaymentStatus = rekening_dana_nasabah.inquiryPaymentStatus({
@@ -536,6 +564,7 @@ inquiryPaymentStatus = rekening_dana_nasabah.inquiryPaymentStatus({
 ```
 
 #### Payment Using Clearing
+
 ```python
 # return as Object
 paymentUsingClearing = rekening_dana_nasabah.paymentUsingClearing({
@@ -545,7 +574,7 @@ paymentUsingClearing = rekening_dana_nasabah.paymentUsingClearing({
   'beneficiaryAccountNumber': '3333333333', # Transfer/payment receiver account number
   'beneficiaryAddress1': 'Jakarta', # Receiver address, e.g.: "Jakarta"
   'beneficiaryAddress2': '', # optional
-  'beneficiaryBankCode': '140397', 
+  'beneficiaryBankCode': '140397',
   'beneficiaryName': 'Panji Samudra', # Receiver name
   'currency': 'IDR', # e.g., “IDR”
   'amount': '15000', # Total payment/transfer
@@ -555,6 +584,7 @@ paymentUsingClearing = rekening_dana_nasabah.paymentUsingClearing({
 ```
 
 #### Payment Using RTGS
+
 ```python
 # return as Object
 paymentUsingRTGS = rekening_dana_nasabah.paymentUsingRTGS({
@@ -574,6 +604,7 @@ paymentUsingRTGS = rekening_dana_nasabah.paymentUsingRTGS({
 ```
 
 #### Inquiry Inter Bank Account
+
 ```python
 # return as Object
 inquiryInterbankAccount = rekening_dana_nasabah.inquiryInterbankAccount({
@@ -586,6 +617,7 @@ inquiryInterbankAccount = rekening_dana_nasabah.inquiryInterbankAccount({
 ```
 
 #### Payment Using Inter Bank
+
 ```python
 # return as Object
 paymentUsingInterbank = rekening_dana_nasabah.paymentUsingInterbank({
@@ -594,14 +626,16 @@ paymentUsingInterbank = rekening_dana_nasabah.paymentUsingInterbank({
   'accountNumber': '0115476117', # Transfer/payment provider account number
   'beneficiaryAccountNumber': '3333333333', # Transfer/payment receiver account number
   'beneficiaryAccountName': 'KEN AROK', # Get from Inquiry Interbank Account
-  'beneficiaryBankCode': '014', 
+  'beneficiaryBankCode': '014',
   'beneficiaryBankName': 'BANK BCA',  # Get from Inquiry Interbank Account
   'amount': '15000' # Total payment/transfer
 })
 ```
 
 ### 2.2.C RDL
+
 Create `RDL` class object
+
 ```python
 from bnipython import BNIClient, RDL
 
@@ -616,9 +650,11 @@ client = BNIClient({
 })
 p2p_lending = RDL(client)
 ```
+
 Available methods for `RDL` class
 
 #### Face Recognition
+
 ```python
 # return as Object
 faceRecognition = p2p_lending.faceRecognition({
@@ -626,7 +662,7 @@ faceRecognition = p2p_lending.faceRecognition({
   'parentCompanyId': 'STI_CHS', # optional
   'firstName': 'MOHAMMAD', # optional
   'middleName': 'BAQER', # optional
-  'lastName': 'ZALQAD', 
+  'lastName': 'ZALQAD',
   'idNumber': '0141111121260118', # Identity Number (KTP only)
   'birthDate': '29-09-2021', # dd-mm-yyyy
   'birthPlace': 'BANDUNG', # e.g. : “Semarang”
@@ -643,13 +679,14 @@ faceRecognition = p2p_lending.faceRecognition({
 ```
 
 #### Register Investor
+
 ```python
 # return as Object
 registerInvestor = p2p_lending.registerInvestor({
   'companyId': 'SANDBOX', # Registered participan id from KSEI
   'parentCompanyId': 'STI_CHS', # optional
   'uuidFaceRecog': '492F33851D634CFB', # RequestUuid successed value from Face Recognition API (KYC valid)
-  'title': '01', 
+  'title': '01',
   'firstName': 'Agus', # e.g.: "Iko"
   'middleName': '', # optional
   'lastName': 'Saputra', # e.g.: "Wirya"
@@ -657,7 +694,7 @@ registerInvestor = p2p_lending.registerInvestor({
   'NPWPNum': '001058893408123', # e.g.: "475519484101000"
   'nationality': 'ID', # e.g.: "ID"
   'domicileCountry': 'ID', # e.g.: "ID"
-  'religion': '2', 
+  'religion': '2',
   'birthPlace': 'Semarang', # e.g.: "Semarang"
   'birthDate': '14081982', # e.g.: "ddMMyyyy"
   'gender': 'M', # "M" or "F"
@@ -697,6 +734,7 @@ registerInvestor = p2p_lending.registerInvestor({
 ```
 
 #### Register Investor Account
+
 ```python
 # return as Object
 registerInvestorAccount = p2p_lending.registerInvestorAccount({
@@ -704,8 +742,8 @@ registerInvestorAccount = p2p_lending.registerInvestorAccount({
   'parentCompanyId': 'STI_CHS', # optional
   'cifNumber': '9100749959', # CIF number
   'currency': 'IDR', # "IDR" or "USD"
-  'openAccountReason': '2', 
-  'sourceOfFund': '1', 
+  'openAccountReason': '2',
+  'sourceOfFund': '1',
   'branchId': '0259',
   'bnisId': '19050813401', # Value = requestUuid.
   'sre': 'NI001CX5U00109' # No. Sub rekening efek, e.g: “NI001CX5U00109”
@@ -713,6 +751,7 @@ registerInvestorAccount = p2p_lending.registerInvestorAccount({
 ```
 
 #### Inquiry Account Info
+
 ```python
 # return as Object
 inquiryAccountInfo = p2p_lending.inquiryAccountInfo({
@@ -722,8 +761,8 @@ inquiryAccountInfo = p2p_lending.inquiryAccountInfo({
 })
 ```
 
-
 #### Inquiry Account Balance
+
 ```python
 # return as Object
 inquiryAccountBalance = p2p_lending.inquiryAccountBalance({
@@ -734,6 +773,7 @@ inquiryAccountBalance = p2p_lending.inquiryAccountBalance({
 ```
 
 #### Inquiry Account History
+
 ```python
 # return as Object
 inquiryAccountHistory = p2p_lending.inquiryAccountHistory({
@@ -744,6 +784,7 @@ inquiryAccountHistory = p2p_lending.inquiryAccountHistory({
 ```
 
 #### Payment Using Transfer
+
 ```python
 # return as Object
 paymentUsingTransfer = p2p_lending.paymentUsingTransfer({
@@ -758,6 +799,7 @@ paymentUsingTransfer = p2p_lending.paymentUsingTransfer({
 ```
 
 #### Inquiry Payment Status
+
 ```python
 # return as Object
 inquiryPaymentStatus = p2p_lending.inquiryPaymentStatus({
@@ -768,6 +810,7 @@ inquiryPaymentStatus = p2p_lending.inquiryPaymentStatus({
 ```
 
 #### Payment Using Clearing
+
 ```python
 # return as Object
 paymentUsingClearing = p2p_lending.paymentUsingClearing({
@@ -777,7 +820,7 @@ paymentUsingClearing = p2p_lending.paymentUsingClearing({
   'beneficiaryAccountNumber': '3333333333', # Transfer/payment receiver account number
   'beneficiaryAddress1': 'Jakarta', # Receiver address, e.g.: "Jakarta"
   'beneficiaryAddress2': '', # optional
-  'beneficiaryBankCode': '140397', 
+  'beneficiaryBankCode': '140397',
   'beneficiaryName': 'Panji Samudra', # Receiver name
   'currency': 'IDR', # e.g., “IDR”
   'amount': '15000', # Total payment/transfer
@@ -787,6 +830,7 @@ paymentUsingClearing = p2p_lending.paymentUsingClearing({
 ```
 
 #### Payment Using RTGS
+
 ```python
 # return as Object
 paymentUsingRTGS = p2p_lending.paymentUsingRTGS({
@@ -805,8 +849,8 @@ paymentUsingRTGS = p2p_lending.paymentUsingRTGS({
 })
 ```
 
-
 #### Inquiry Inter Bank Account
+
 ```python
 # return as Object
 inquiryInterbankAccount = p2p_lending.inquiryInterbankAccount({
@@ -819,6 +863,7 @@ inquiryInterbankAccount = p2p_lending.inquiryInterbankAccount({
 ```
 
 #### Payment Using Inter Bank
+
 ```python
 # return as Object
 paymentUsingInterbank = p2p_lending.paymentUsingInterbank({
@@ -827,14 +872,16 @@ paymentUsingInterbank = p2p_lending.paymentUsingInterbank({
   'accountNumber': '0115476117', # Transfer/payment provider account number
   'beneficiaryAccountNumber': '3333333333', # Transfer/payment receiver account number
   'beneficiaryAccountName': 'KEN AROK', # Get from Inquiry Interbank Account
-  'beneficiaryBankCode': '014', 
+  'beneficiaryBankCode': '014',
   'beneficiaryBankName': 'BANK BCA',  # Get from Inquiry Interbank Account
   'amount': '15000' # Total payment/transfer
 })
 ```
 
 ### 2.2.E RDF
+
 Create `RDF` class object
+
 ```python
 from bnipython import BNIClient, RDF
 
@@ -849,9 +896,11 @@ client = BNIClient({
 })
 rekening_dana_funder = RDF(client)
 ```
+
 Available methods for `RDF` class
 
 #### Face Recognition
+
 ```python
 # return as Object
 faceRecognition = rekening_dana_funder.faceRecognition({
@@ -859,7 +908,7 @@ faceRecognition = rekening_dana_funder.faceRecognition({
   'parentCompanyId': 'STI_CHS', # optional
   'firstName': 'MOHAMMAD', # optional
   'middleName': 'BAQER', # optional
-  'lastName': 'ZALQAD', 
+  'lastName': 'ZALQAD',
   'idNumber': '0141111121260118', # Identity Number (KTP only)
   'birthDate': '29-09-2021', # dd-mm-yyyy
   'birthPlace': 'BANDUNG', # e.g. : “Semarang”
@@ -876,13 +925,14 @@ faceRecognition = rekening_dana_funder.faceRecognition({
 ```
 
 #### Register Investor
+
 ```python
 # return as Object
 registerInvestor = rekening_dana_funder.registerInvestor({
   'companyId': 'SANDBOX', # Registered participan id from KSEI
   'parentCompanyId': 'STI_CHS', # optional
   'uuidFaceRecog': '492F33851D634CFB', # RequestUuid successed value from Face Recognition API (KYC valid)
-  'title': '01', 
+  'title': '01',
   'firstName': 'Agus', # e.g.: "Iko"
   'middleName': '', # optional
   'lastName': 'Saputra', # e.g.: "Wirya"
@@ -890,7 +940,7 @@ registerInvestor = rekening_dana_funder.registerInvestor({
   'NPWPNum': '001058893408123', # e.g.: "475519484101000"
   'nationality': 'ID', # e.g.: "ID"
   'domicileCountry': 'ID', # e.g.: "ID"
-  'religion': '2', 
+  'religion': '2',
   'birthPlace': 'Semarang', # e.g.: "Semarang"
   'birthDate': '14081982', # e.g.: "ddMMyyyy"
   'gender': 'M', # "M" or "F"
@@ -930,6 +980,7 @@ registerInvestor = rekening_dana_funder.registerInvestor({
 ```
 
 #### Register Investor Account
+
 ```python
 # return as Object
 registerInvestorAccount = rekening_dana_funder.registerInvestorAccount({
@@ -937,8 +988,8 @@ registerInvestorAccount = rekening_dana_funder.registerInvestorAccount({
   'parentCompanyId': 'STI_CHS', # optional
   'cifNumber': '9100749959', # CIF number
   'currency': 'IDR', # "IDR" or "USD"
-  'openAccountReason': '2', 
-  'sourceOfFund': '1', 
+  'openAccountReason': '2',
+  'sourceOfFund': '1',
   'branchId': '0259',
   'bnisId': '19050813401', # Value = requestUuid.
   'sre': 'NI001CX5U00109' # No. Sub rekening efek, e.g: “NI001CX5U00109”
@@ -946,6 +997,7 @@ registerInvestorAccount = rekening_dana_funder.registerInvestorAccount({
 ```
 
 #### Inquiry Account Info
+
 ```python
 # return as Object
 inquiryAccountInfo = rekening_dana_funder.inquiryAccountInfo({
@@ -955,8 +1007,8 @@ inquiryAccountInfo = rekening_dana_funder.inquiryAccountInfo({
 })
 ```
 
-
 #### Inquiry Account Balance
+
 ```python
 # return as Object
 inquiryAccountBalance = rekening_dana_funder.inquiryAccountBalance({
@@ -967,6 +1019,7 @@ inquiryAccountBalance = rekening_dana_funder.inquiryAccountBalance({
 ```
 
 #### Inquiry Account History
+
 ```python
 # return as Object
 inquiryAccountHistory = rekening_dana_funder.inquiryAccountHistory({
@@ -977,6 +1030,7 @@ inquiryAccountHistory = rekening_dana_funder.inquiryAccountHistory({
 ```
 
 #### Payment Using Transfer
+
 ```python
 # return as Object
 paymentUsingTransfer = rekening_dana_funder.paymentUsingTransfer({
@@ -991,6 +1045,7 @@ paymentUsingTransfer = rekening_dana_funder.paymentUsingTransfer({
 ```
 
 #### Inquiry Payment Status
+
 ```python
 # return as Object
 inquiryPaymentStatus = rekening_dana_funder.inquiryPaymentStatus({
@@ -1001,6 +1056,7 @@ inquiryPaymentStatus = rekening_dana_funder.inquiryPaymentStatus({
 ```
 
 #### Payment Using Clearing
+
 ```python
 # return as Object
 paymentUsingClearing = rekening_dana_funder.paymentUsingClearing({
@@ -1010,7 +1066,7 @@ paymentUsingClearing = rekening_dana_funder.paymentUsingClearing({
   'beneficiaryAccountNumber': '3333333333', # Transfer/payment receiver account number
   'beneficiaryAddress1': 'Jakarta', # Receiver address, e.g.: "Jakarta"
   'beneficiaryAddress2': '', # optional
-  'beneficiaryBankCode': '140397', 
+  'beneficiaryBankCode': '140397',
   'beneficiaryName': 'Panji Samudra', # Receiver name
   'currency': 'IDR', # e.g., “IDR”
   'amount': '15000', # Total payment/transfer
@@ -1020,6 +1076,7 @@ paymentUsingClearing = rekening_dana_funder.paymentUsingClearing({
 ```
 
 #### Payment Using RTGS
+
 ```python
 # return as Object
 paymentUsingRTGS = rekening_dana_funder.paymentUsingRTGS({
@@ -1038,8 +1095,8 @@ paymentUsingRTGS = rekening_dana_funder.paymentUsingRTGS({
 })
 ```
 
-
 #### Inquiry Inter Bank Account
+
 ```python
 # return as Object
 inquiryInterbankAccount = rekening_dana_funder.inquiryInterbankAccount({
@@ -1052,6 +1109,7 @@ inquiryInterbankAccount = rekening_dana_funder.inquiryInterbankAccount({
 ```
 
 #### Payment Using Inter Bank
+
 ```python
 # return as Object
 paymentUsingInterbank = rekening_dana_funder.paymentUsingInterbank({
@@ -1060,13 +1118,16 @@ paymentUsingInterbank = rekening_dana_funder.paymentUsingInterbank({
   'accountNumber': '0115476117', # Transfer/payment provider account number
   'beneficiaryAccountNumber': '3333333333', # Transfer/payment receiver account number
   'beneficiaryAccountName': 'KEN AROK', # Get from Inquiry Interbank Account
-  'beneficiaryBankCode': '014', 
+  'beneficiaryBankCode': '014',
   'beneficiaryBankName': 'BANK BCA',  # Get from Inquiry Interbank Account
   'amount': '15000' # Total payment/transfer
 })
 ```
+
 ### 2.2.F BNI Move / Digiloan
+
 Create `BNIMove` class object
+
 ```python
 from bnipython import BNIClient, BNIMove
 
@@ -1081,9 +1142,11 @@ client = BNIClient({
 })
 bniMove = BNIMove(client)
 ```
+
 Available methods for `BNIMove` class
 
 #### Prescreening
+
 ```python
 # return as Object
 prescreening = bniMove.prescreening({
@@ -1096,9 +1159,9 @@ prescreening = bniMove.prescreening({
   "provinsiUsaha":"06", # Provinsi Usaha
   "kotaUsaha":"143", # Kota Usaha
   "kecamatanUsaha":"1074", # Kecamatan Usaha
-  "kelurahanUsaha":"4254", # Kelurahan Usaha 
+  "kelurahanUsaha":"4254", # Kelurahan Usaha
   "kodePosUsaha":"11450", # Kode Pos Usaha
-  "sektorEkonomi":"2", # Sektor Ekonomi 
+  "sektorEkonomi":"2", # Sektor Ekonomi
   "totalPenjualan":50000000, # Total Penjualan per bulan
   "jangkaWaktu":"12", # Jangka waktu / tenor
   "jenisPinjaman":"1", # Jenis Pinjaman
@@ -1112,11 +1175,12 @@ prescreening = bniMove.prescreening({
 ```
 
 #### Save Image
+
 ```python
 # return as Object
 saveImage = bniMove.saveImage({
   "Id": "MJO2024022000004", # Id
-  "deskripsi": "Foto Identitas KTP", # Deskripsi 
+  "deskripsi": "Foto Identitas KTP", # Deskripsi
   "jenisDokumen": "A03", # Jenis dokumen
   "namaFile": "Foto KTP", # Nama file
   "extensionFile": "png", # Extension File
@@ -1124,11 +1188,9 @@ saveImage = bniMove.saveImage({
 })
 ```
 
-
-
 ## Get help
 
-* [Digital Services](https://digitalservices.bni.co.id/en/)
-* [API documentation](https://digitalservices.bni.co.id/documentation/public/en)
-* [Stackoverflow](https://stackoverflow.com/users/19817167/bni-api-management)
-* Can't find answer you looking for? email to [apisupport@bni.co.id](mailto:apisupport@bni.co.id)
+- [Digital Services](https://digitalservices.bni.co.id/en/)
+- [API documentation](https://digitalservices.bni.co.id/documentation/public/en)
+- [Stackoverflow](https://stackoverflow.com/users/19817167/bni-api-management)
+- Can't find answer you looking for? email to [apisupport@bni.co.id](mailto:apisupport@bni.co.id)
